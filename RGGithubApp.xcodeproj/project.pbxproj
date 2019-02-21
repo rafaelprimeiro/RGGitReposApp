@@ -12,6 +12,7 @@
 		5315A45B221E2F7A0059936A /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315A45A221E2F7A0059936A /* AlertHelper.swift */; };
 		5315A45E221E38B60059936A /* RepositoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315A45C221E38B60059936A /* RepositoreTableViewCell.swift */; };
 		5315A461221E43870059936A /* UIImageView+loadFromUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315A460221E43870059936A /* UIImageView+loadFromUrl.swift */; };
+		5315A462221E53DB0059936A /* PrintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315A458221E16FF0059936A /* PrintHelper.swift */; };
 		53AFDD9D221CC49E00CDD8D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AFDD9C221CC49E00CDD8D1 /* AppDelegate.swift */; };
 		53AFDDA2221CC49E00CDD8D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53AFDDA0221CC49E00CDD8D1 /* Main.storyboard */; };
 		53AFDDA4221CC49F00CDD8D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53AFDDA3221CC49F00CDD8D1 /* Assets.xcassets */; };
@@ -405,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5315A462221E53DB0059936A /* PrintHelper.swift in Sources */,
 				53AFDDC4221CC65900CDD8D1 /* BaseService.swift in Sources */,
 				53AFDDB2221CC49F00CDD8D1 /* RGGithubAppTests.swift in Sources */,
 				53AFDDC7221CC69600CDD8D1 /* GithubService.swift in Sources */,
