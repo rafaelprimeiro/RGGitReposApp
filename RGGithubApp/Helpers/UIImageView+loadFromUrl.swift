@@ -8,7 +8,11 @@
 
 import UIKit
 
-let imageCache = NSCache<AnyObject, AnyObject>()
+let imageCache:NSCache<AnyObject, AnyObject> = {
+    let imgCache = NSCache<AnyObject, AnyObject>()
+    imgCache.countLimit = 30
+    return imgCache
+}()
 
 extension UIImageView {
   
