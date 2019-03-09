@@ -13,44 +13,25 @@ struct GithubResult: Codable {
   let incompleteResults: Bool?
   let items: [RepositoreRemote]?
   let message: String?
-  let documentationURL: String?
-  
-  enum CodingKeys: String, CodingKey {
-    case totalCount = "total_count"
-    case incompleteResults = "incomplete_results"
-    case items
-    case message
-    case documentationURL = "documentation_url"
-  }
+  let documentationUrl: String?
 }
 
 struct RepositoreRemote: Codable {
   let name: String
   let owner: UserRemote
   let stargazersCount: Int
-  
-  enum CodingKeys: String, CodingKey {
-    case name
-    case owner
-    case stargazersCount = "stargazers_count"
-  }
 }
 
 struct UserRemote: Codable {
   let login: String
-  let avatarURL: String
-  
-  enum CodingKeys: String, CodingKey {
-    case login
-    case avatarURL = "avatar_url"
-    
-  }
+  let avatarUrl: String
 }
 
 extension GithubResult {
   init(data: Data) throws {
     let decoder = JSONDecoder()
     decoder.dateDecodingStrategy = .iso8601
+    decoder.keyDecodingStrategy = .convertFromSnakeCase
     self = try decoder.decode(GithubResult.self, from: data)
   }
   

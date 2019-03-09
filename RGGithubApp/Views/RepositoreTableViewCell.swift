@@ -21,7 +21,7 @@ class RepositoreTableViewCell: UITableViewCell {
       lblRepoName.text = repo.name
       lblOwnerName.text = repo.owner.login
       lblStars.text = "\(repo.stargazersCount)"
-      imgUser.loadImageWithUrl(string: repo.owner.avatarURL)
+      imgUser.loadImageWithUrl(string: repo.owner.avatarUrl)
     }
   }
   
