@@ -114,7 +114,9 @@ class MainTableViewController: UITableViewController {
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "repoID", for: indexPath) as! RepositoreTableViewCell
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: "repoID", for: indexPath) as? RepositoreTableViewCell else {
+        return tableView.dequeueReusableCell(withIdentifier: "repoID", for: indexPath)
+    }
     cell.repo = repositories[indexPath.row]
     if (indexPath.row == repositories.count-1) {
       loadItems()

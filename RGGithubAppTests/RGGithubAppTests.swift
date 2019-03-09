@@ -11,7 +11,7 @@ import XCTest
 
 class RGGithubAppTests: XCTestCase {
   
-  let service = try! GithubService(baseURL: "https://api.github.com")
+  let service = try? GithubService(baseURL: "https://api.github.com")
 
   override func setUp() {
     // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -22,6 +22,9 @@ class RGGithubAppTests: XCTestCase {
   }
 
   func testRequestRepos() {
+    guard let service = self.service else {
+        XCTAssertTrue(false, "Exite um erro de configuração no GethubService.")
+    }
     self.measure {
       service.fetchRepos() { githubResult in
         guard let githubResult = githubResult else {
