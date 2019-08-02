@@ -17,7 +17,10 @@ let imageCache:NSCache<AnyObject, AnyObject> = {
 extension UIImageView {
   
   func loadImageWithUrl(string:String) {
-    let url = URL(string: string)
+    guard let url = URL(string: string) else {
+       completed()
+       return
+    }
     self.tag = Date().hashValue
     let tag = self.tag
     
@@ -29,18 +32,18 @@ extension UIImageView {
       return
     }
     
-    URLSession.shared.dataTask(with: url!) { (data, response, error) in
-      if (error != nil) {
-        print(error!)
+    URLSession.shared.dataTask(with: url) { (data, response, error) in
+      if let error = error {
+        print(error)
         return
       }
       DispatchQueue.main.async {
         guard let data = data else { return }
         
-        let image = UIImage(data: data)
-        imageCache.setObject(image!, forKey: string as AnyObject)
+        guard let image = UIImage(data: data) else { return }
+        imageCache.setObject(image, forKey: string as AnyObject)
         if (tag != self.tag) { return }
-        self.image = image!
+        self.image = image
       }
     }.resume()
   }
